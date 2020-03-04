@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Community Clean Up</string>
+    <string name="activity_main.welcome1">Welcome to Community Clean Up!</string>
+    <string name="activity_main.welcome2">Please log-in or register...</string>
+    <string name="activity_main.username">Username:</string>
+    <string name="activity_main.password">Password:</string>
+    <string name="activity_main.unameprompt">Enter username...</string>
+    <string name="activity_main.login">Log-In</string>
+    <string name="activity_main.register">Register</string>
+    <string name="activity_main.forgotpassword">Forgotten account?</string>
+</resources>
