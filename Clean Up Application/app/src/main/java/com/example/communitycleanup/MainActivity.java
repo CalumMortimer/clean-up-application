@@ -33,8 +33,6 @@ public class MainActivity extends AppCompatActivity {
             String mySerial = authenticatedUser.getSerialData();
             intent.putExtra("authenticated_user",mySerial);
 
-
-
        //     startActivity(intent);
             startActivity(intent);
         }
