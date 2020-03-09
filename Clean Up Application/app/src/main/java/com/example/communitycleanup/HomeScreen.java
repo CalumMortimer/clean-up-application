@@ -25,19 +25,4 @@ public class HomeScreen extends AppCompatActivity {
         System.out.println(authenticatedUser.getCommunityGroup());*/
     }
 
-    public void myMethod(View view)
-    {
-        Intent intent = new Intent(this,MainActivity.class);
-
-
-        User myUser = new User();
-
-        String myString = myUser.getSerialData();
-
-       // System.out.println(myString);
-
-        intent.putExtra("my data",myString);
-
-        startActivity(intent);
-    }
 }
