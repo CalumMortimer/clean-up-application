@@ -2,9 +2,8 @@
     <string name="app_name">Community Clean Up</string>
     <string name="activity_main.welcome1">Welcome to Community Clean Up!</string>
     <string name="activity_main.welcome2">Please log-in or register...</string>
-    <string name="activity_main.username">Username:</string>
+    <string name="activity_main.email">Email:</string>
     <string name="activity_main.password">Password:</string>
-    <string name="activity_main.unameprompt">Enter username...</string>
     <string name="activity_main.login">Log-In</string>
     <string name="activity_main.register">Register</string>
     <string name="activity_main.forgotpassword">Forgotten account?</string>
@@ -14,7 +13,12 @@
     <string name="activity_home.myaccount">My Account</string>
     <string name="activity_home.donate">Donate</string>
     <string name="activity_home.loganissue">Log An Issue</string>
-    <string name="title_activity_upcoming_events">UpcomingEvents</string>
-
+    <string name="activity_registration.preamble1">Registration Screen</string>
+    <string name="activity_registration.preamble2">Please Enter Registration Details...</string>
+    <string name="activity_registration.email">Email:</string>
+    <string name="activity_registration.password">Password:</string>
+    <string name="activity_registration.first">First Name:</string>
+    <string name="activity_registration.last">Last Name:</string>
+    <string name="activity_registration.grouppin">Group Pin:</string>
 
 </resources>
