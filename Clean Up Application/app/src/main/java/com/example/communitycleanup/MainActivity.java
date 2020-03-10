@@ -7,16 +7,22 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 
+import java.security.MessageDigest;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        DatabaseHelper myDB = new DatabaseHelper(this);
+
+        boolean try1 = myDB.doesUserExist("admin");
+        boolean try2 = myDB.doesUserExist("not admin");
+        boolean try3 = myDB.doesUserExist("hello dave");
     }
 
-    public void logInAttempt(View view)
-    {
+    public void logInAttempt(View view){
         EditText userNameBox = (EditText)findViewById(R.id.editText);
         EditText passWordBox = (EditText)findViewById(R.id.editText3);
         String username = userNameBox.getText().toString();
@@ -33,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
             String mySerial = authenticatedUser.getSerialData();
             intent.putExtra("authenticated_user",mySerial);
 
-       //     startActivity(intent);
             startActivity(intent);
         }
         else
