@@ -10,7 +10,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
-    /*public DatabaseHelper(Context context)
+    public DatabaseHelper(Context context)
     {
         super(context,"user.db",null,1);
         SQLiteDatabase db = this.getWritableDatabase();
@@ -37,5 +37,5 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         contentValues.put("EMAIL",email);
         contentValues.put("GROUP_NO",groupno);
         db.insert("USERS",null,contentValues);
-    }*/
+    }
 }
