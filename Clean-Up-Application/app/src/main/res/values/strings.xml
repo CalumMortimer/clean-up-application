@@ -6,7 +6,7 @@
     <string name="activity_main.password">Password:</string>
     <string name="activity_main.login">Log-In</string>
     <string name="activity_main.register">Register</string>
-    <string name="activity_main.forgotpassword">Forgotten account?</string>
+    <string name="activity_main.forgotpassword">Forgotten password?</string>
     <string name="activity_home.viewevents">View Upcoming Events</string>
     <string name="activity_home.checkin">Check In</string>
     <string name="activity_home.checkout">Check Out</string>

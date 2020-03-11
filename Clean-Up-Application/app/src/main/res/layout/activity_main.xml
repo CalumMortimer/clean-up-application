@@ -96,6 +96,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
+            android:onClick="recoverPassword"
             android:text="@string/activity_main.forgotpassword"
             android:textSize="10sp"
             app:layout_constraintStart_toStartOf="@+id/button2"

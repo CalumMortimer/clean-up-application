@@ -76,4 +76,20 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void recoverPassword(View view){
+        final String emailString = email.getText().toString();
+        firebaseAuth.sendPasswordResetEmail(emailString)
+                .addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(getApplicationContext(),"Password reset email sent to "+emailString,Toast.LENGTH_LONG).show();
+                        }
+                        else {
+                            Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+    }
 }
