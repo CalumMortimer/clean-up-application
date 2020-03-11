@@ -20,5 +20,13 @@
     <string name="activity_registration.first">First Name:</string>
     <string name="activity_registration.last">Last Name:</string>
     <string name="activity_registration.grouppin">Group Pin:</string>
+    <string name="activity_events.description">Description:</string>
+    <string name="activity_events.location">Location:</string>
+    <string name="activity_events.date">Date:</string>
+    <string name="activity_events.start">Start:</string>
+    <string name="activity_events.finish">Finish:</string>
+    <string name="activity_events.favourite">Favourite:</string>
+
+
 
 </resources>
