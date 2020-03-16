@@ -27,6 +27,7 @@
         </activity>
         <activity android:name=".HomeActivities.CheckInActivity" />
         <activity android:name=".HomeActivities.CheckOutActivity" />
+        <activity android:name=".HomeActivities.MyAccount"/>
     </application>
 
 </manifest>

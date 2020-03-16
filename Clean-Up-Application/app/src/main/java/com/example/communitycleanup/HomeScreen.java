@@ -10,6 +10,7 @@ import com.example.communitycleanup.HomeActivities.CheckOutActivity;
 import com.example.communitycleanup.HomeActivities.DrugEvidenceActivity;
 import com.example.communitycleanup.HomeActivities.EventsActivity;
 import com.example.communitycleanup.HomeActivities.FlyTippingActivity;
+import com.example.communitycleanup.HomeActivities.MyAccount;
 import com.google.firebase.auth.FirebaseUser;
 import android.content.Intent;
 import android.view.View;
@@ -91,6 +92,12 @@ public class HomeScreen extends AppCompatActivity {
      */
     public void about(View view) {
         Intent intent = new Intent(getApplicationContext(), AboutActivity.class);
+        startActivity(intent);
+    }
+
+    public void account(View view)
+    {
+        Intent intent = new Intent(getApplicationContext(), MyAccount.class);
         startActivity(intent);
     }
 }

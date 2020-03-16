@@ -33,6 +33,9 @@
     <string name="activity_drug_evidence.upload">Add a Photo evidence</string>
     <string name="activity_no_events.nonerunning1">No events are running!</string>
     <string name="activity_no_events.nonerunning2">Please check the upcoming events page</string>
+    <string name="first_name">First Name</string>
+    <string name="date_joined">Date Joined:</string>
+    <string name="last_name">Last Name</string>
 
 
 </resources>
