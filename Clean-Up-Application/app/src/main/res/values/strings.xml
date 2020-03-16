@@ -26,6 +26,11 @@
     <string name="activity_events.start">Start:</string>
     <string name="activity_events.finish">Finish:</string>
     <string name="activity_events.favourite">Fav:</string>
+    <string name="activity_drug_evidence">Report Drug Evidence</string>
+    <string name="activity_fly_tipping_evidence">Report Fly-tipping</string>
+    <string name="activity_drug_evidence.postcode">Enter Postcode</string>
+    <string name="activity_drug_evidence.description">Please describe what you found in the box below:</string>
+    <string name="activity_drug_evidence.upload">Add a Photo evidence</string>
 
 
 
