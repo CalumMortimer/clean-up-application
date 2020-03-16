@@ -33,7 +33,6 @@ public class EventsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_events);
         setTitle("View Upcoming Events");
 
-
         EventDatabase eDB = new EventDatabase(this);
         eDB.populate();
         ArrayList<Event> myEventList = new ArrayList<Event>();

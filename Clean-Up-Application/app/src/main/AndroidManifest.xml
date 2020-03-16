@@ -12,11 +12,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivities.AboutActivity"/>
+        <activity android:name=".NoEventsActivity"></activity>
+        <activity android:name=".HomeActivities.AboutActivity" />
         <activity android:name=".HomeActivities.EventsActivity" />
         <activity android:name=".HomeScreen" />
-        <activity android:name=".HomeActivities.DrugEvidenceActivity"></activity>
-        <activity android:name=".HomeActivities.FlyTippingActivity"></activity>
+        <activity android:name=".HomeActivities.DrugEvidenceActivity" />
+        <activity android:name=".HomeActivities.FlyTippingActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

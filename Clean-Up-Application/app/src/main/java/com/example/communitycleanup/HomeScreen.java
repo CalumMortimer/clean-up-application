@@ -2,6 +2,8 @@ package com.example.communitycleanup;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.communitycleanup.Data.EventDatabase;
 import com.example.communitycleanup.HomeActivities.AboutActivity;
 import com.example.communitycleanup.HomeActivities.CheckInActivity;
 import com.example.communitycleanup.HomeActivities.CheckOutActivity;
@@ -16,7 +18,7 @@ import android.view.View;
  * sub-menus of the application
  */
 public class HomeScreen extends AppCompatActivity {
-
+    EventDatabase eDB;
     /**Set the layout to the home screen activity
      */
     @Override
@@ -24,6 +26,9 @@ public class HomeScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_screen);
         setTitle("Home");
+
+        eDB = new EventDatabase(this);
+        eDB.populate();
     }
 
     /**Open the EventsActivity
@@ -61,8 +66,14 @@ public class HomeScreen extends AppCompatActivity {
      * @param view the "check in" button
      */
     public void checkIn(View view) {
-        Intent intent = new Intent(getApplicationContext(), CheckInActivity.class);
-        startActivity(intent);
+        if (eDB.isEventRunning()==null){
+            Intent intent = new Intent(getApplicationContext(), NoEventsActivity.class);
+            startActivity(intent);
+        }
+        else{
+            Intent intent = new Intent(getApplicationContext(), CheckInActivity.class);
+            startActivity(intent);
+        }
     }
 
     /**Open the CheckOut activity

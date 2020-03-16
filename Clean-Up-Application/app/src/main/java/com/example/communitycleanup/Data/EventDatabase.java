@@ -7,6 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.example.communitycleanup.DataTransfer.Event;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -24,7 +26,7 @@ public class EventDatabase extends SQLiteOpenHelper {
     {
         super(context,"events.db",null,1);
         SQLiteDatabase db = this.getWritableDatabase();
-        onCreate(db);
+        onUpgrade(db,0,0);
     }
 
     /**Create the table events, if it does not already exist*/
@@ -70,6 +72,7 @@ public class EventDatabase extends SQLiteOpenHelper {
         insert("April Cleanup","Beach House","04/04/20","10:00","12:00","No");
         insert("May Cleanup","North Hut","03/05/20","10:00","12:00","No");
         insert("June Cleanup","South Hut","06/06/20","10:00","12:00","No");
+        insert("Test Event","South Hut","16/03/20","17:00","19:00","No");
     }
 
     /**returns an ArrayList of all Event objects represented on the Events table
@@ -104,10 +107,45 @@ public class EventDatabase extends SQLiteOpenHelper {
         }
     }
 
-    public void isEventToday()
+    private int stringToHour(String time)
+    {
+        String[] splitTime = time.split(":");
+        return Integer.parseInt(splitTime[0]);
+    }
+
+    public Event isEventRunning()
     {
         Date today = new Date();
+        int hour = today.getHours();
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yy");
+        String todayString = dateFormat.format(today);
+        SQLiteDatabase db = this.getReadableDatabase();
+        Event currentEvent = null;
+        Cursor c = null;
 
+        try {
+            c = db.rawQuery("Select * from Events where date = '"+todayString+"';", null);
+            if (c.moveToFirst()) {
+                do {
+                    int startHour = stringToHour(c.getString(c.getColumnIndex("START")));
+                    int finishHour = stringToHour(c.getString(c.getColumnIndex("FINISH")));
+                    if ((hour >= startHour) && (hour < finishHour)) {
+                        currentEvent = new Event();
+                        currentEvent.setDescription(c.getString(c.getColumnIndex("DESCRIPTION")));
+                        currentEvent.setLocation(c.getString(c.getColumnIndex("LOCATION")));
+                        currentEvent.setDate(c.getString(c.getColumnIndex("DATE")));
+                        currentEvent.setStart(c.getString(c.getColumnIndex("START")));
+                        currentEvent.setFinish(c.getString(c.getColumnIndex("FINISH")));
+                        currentEvent.setFavourite(c.getString(c.getColumnIndex("FAVOURITE")));
+                    }
+                } while (c.moveToNext());
+            }
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+        }
 
+        return currentEvent;
     }
 }
