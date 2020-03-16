@@ -2,8 +2,13 @@ package com.example.communitycleanup.Data;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.communitycleanup.DataTransfer.Event;
+
+import java.util.ArrayList;
 
 public class EventDatabase extends SQLiteOpenHelper {
 
@@ -11,6 +16,7 @@ public class EventDatabase extends SQLiteOpenHelper {
     {
         super(context,"events.db",null,1);
         SQLiteDatabase db = this.getWritableDatabase();
+        db.execSQL("DROP TABLE IF EXISTS EVENTS");
         onCreate(db);
     }
 
@@ -40,8 +46,36 @@ public class EventDatabase extends SQLiteOpenHelper {
 
     public void populate()
     {
-        insert("April Cleanup","Beach House","04/04/2020","10:00","12:00","No");
-        insert("May Cleanup","North Hut","03/05/2020","10:00","12:00","No");
-        insert("June Cleanup","South Hut","06/06/2020","10:00","12:00","No");
+        insert("April Cleanup","Beach House","04/04/20","10:00","12:00","No");
+        insert("May Cleanup","North Hut","03/05/20","10:00","12:00","No");
+        insert("June Cleanup","South Hut","06/06/20","10:00","12:00","No");
+    }
+
+    public ArrayList<Event> getEventsList() {
+        ArrayList<Event> fullList = new ArrayList<Event>();
+        Event thisEvent = null;
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor c = null;
+
+        try {
+            c = db.rawQuery("Select * from Events", null);
+            if (c.moveToFirst()) {
+                do {
+                    thisEvent = new Event();
+                    thisEvent.setDescription(c.getString(c.getColumnIndex("DESCRIPTION")));
+                    thisEvent.setLocation(c.getString(c.getColumnIndex("LOCATION")));
+                    thisEvent.setDate(c.getString(c.getColumnIndex("DATE")));
+                    thisEvent.setStart(c.getString(c.getColumnIndex("START")));
+                    thisEvent.setFinish(c.getString(c.getColumnIndex("FINISH")));
+                    thisEvent.setFavourite(c.getString(c.getColumnIndex("FAVOURITE")));
+                    fullList.add(thisEvent);
+                } while (c.moveToNext());
+            }
+            return fullList;
+        } finally {
+            if (c != null) {
+                c.close();
+            }
+        }
     }
 }
