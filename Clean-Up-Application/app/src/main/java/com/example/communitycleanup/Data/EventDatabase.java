@@ -6,7 +6,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import com.example.communitycleanup.DataTransfer.Event;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**An EventDatabase class which manages an SQLite database for the Events table
  *
@@ -59,7 +63,7 @@ public class EventDatabase extends SQLiteOpenHelper {
         db.insert("EVENTS",null,contentValues);
     }
 
-    /**fills the events table with initial data
+    /**fills the events table with initial data if it is not already present
      */
     public void populate()
     {
@@ -98,5 +102,12 @@ public class EventDatabase extends SQLiteOpenHelper {
                 c.close();
             }
         }
+    }
+
+    public void isEventToday()
+    {
+        Date today = new Date();
+
+
     }
 }

@@ -5,13 +5,13 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.communitycleanup.R;
-
 import java.util.ArrayList;
 
+/**A class representing the Check In page
+ *
+ */
 public class CheckInActivity extends AppCompatActivity {
     EditText event;
     EditText name;
@@ -20,6 +20,9 @@ public class CheckInActivity extends AppCompatActivity {
     ArrayAdapter arrayAdapter;
     ArrayList<String> myList = new ArrayList<>();
 
+    /**Set the layout to the layout stored in the Check In activity
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

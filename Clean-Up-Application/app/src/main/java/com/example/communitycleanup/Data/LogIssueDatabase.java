@@ -10,8 +10,6 @@ import com.example.communitycleanup.HomeActivities.LogAnIssue;
 
 public class LogIssueDatabase extends SQLiteOpenHelper{
 
-
-
     private static final int DATABASE_VERSION = 1;
     private static final String DATABASE_NAME = "Reported Issue";
     private static final String TABLE_NAME = "Issue";
@@ -25,7 +23,6 @@ public class LogIssueDatabase extends SQLiteOpenHelper{
     public LogIssueDatabase (Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
-
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -44,7 +41,6 @@ public class LogIssueDatabase extends SQLiteOpenHelper{
 
     }
 
-
     public void addIssue(LogAnIssue evidence) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -55,17 +51,5 @@ public class LogIssueDatabase extends SQLiteOpenHelper{
         db.insert(TABLE_NAME,null, values);
         db.close();
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

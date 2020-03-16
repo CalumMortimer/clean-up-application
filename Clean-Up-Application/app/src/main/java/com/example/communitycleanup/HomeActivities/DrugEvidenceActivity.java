@@ -28,7 +28,6 @@ public class DrugEvidenceActivity extends AppCompatActivity {
     MainActivity main1;
     LogIssueDatabase dbase;
 
-
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drug_evidence);
@@ -40,8 +39,6 @@ public class DrugEvidenceActivity extends AppCompatActivity {
         btnSubmit = findViewById(R.id.button11);
         btnUpload = findViewById(R.id.button13);
         //pic = findViewById(R.id.imageView);
-
-
     }
 
     public void logButton(View v) {
@@ -64,10 +61,5 @@ public class DrugEvidenceActivity extends AppCompatActivity {
      }
 
     }
-
-
-
-
-
 
 }

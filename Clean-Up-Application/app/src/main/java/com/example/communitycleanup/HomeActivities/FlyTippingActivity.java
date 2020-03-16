@@ -60,14 +60,7 @@ public class FlyTippingActivity extends AppCompatActivity {
             //dbase.addIssue(log);
 
         }
-
     }
-
-
-
-
-
-
 }
 
 
