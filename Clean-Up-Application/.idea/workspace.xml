@@ -13,11 +13,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d13af237-c0b2-4924-b9ee-22feb6058a61" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/communitycleanup/Data/EventDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/communitycleanup/Data/EventDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/communitycleanup/Data/LogIssueDatabase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/communitycleanup/Data/LogIssueDatabase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/communitycleanup/HomeActivities/CheckInActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/communitycleanup/HomeActivities/CheckInActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/communitycleanup/HomeActivities/DrugEvidenceActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/communitycleanup/HomeActivities/DrugEvidenceActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/communitycleanup/HomeActivities/FlyTippingActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/communitycleanup/HomeActivities/FlyTippingActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/communitycleanup/HomeActivities/EventsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/communitycleanup/HomeActivities/EventsActivity.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/build/classes/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -162,13 +158,13 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/communitycleanup/HomeActivities/CheckOutActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/communitycleanup/HomeActivities/AboutActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_events.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/communitycleanup/HomeActivities/EventsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/communitycleanup/HomeActivities/CheckInActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/communitycleanup/HomeActivities/FlyTippingActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/communitycleanup/Data/LogIssueDatabase.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/communitycleanup/HomeActivities/DrugEvidenceActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/communitycleanup/Data/EventDatabase.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/communitycleanup/HomeActivities/EventsActivity.java" />
       </list>
     </option>
   </component>
