@@ -33,6 +33,7 @@ public class FlyTippingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fly_tipping);
+        setTitle("Report Fly Tipping");
 
         inputPostCode1 = findViewById(R.id.editText5i);
         inputDescription1 = findViewById(R.id.editText7i);
@@ -40,7 +41,6 @@ public class FlyTippingActivity extends AppCompatActivity {
         btnSubmit1 = findViewById(R.id.button11i);
         btnUpload1 = findViewById(R.id.button13i);
         //pic = findViewById(R.id.imageView);
-
     }
 
     public void logButton1(View v) {

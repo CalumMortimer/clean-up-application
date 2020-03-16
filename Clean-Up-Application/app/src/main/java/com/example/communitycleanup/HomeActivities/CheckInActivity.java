@@ -24,6 +24,7 @@ public class CheckInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkin);
+        setTitle("Check In");
 
         event = (EditText) findViewById(R.id.editTextEvent);
         name = (EditText) findViewById(R.id.editTextName);

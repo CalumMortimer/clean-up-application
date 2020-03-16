@@ -9,12 +9,12 @@ import android.widget.Toast;
 
 import com.example.communitycleanup.R;
 
-
 public class AboutActivity extends Activity {
     @Override
     public void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_about);
+        setTitle("About Us");
         //get data passed in, using getStringExtra()
 
         Bundle bundle = getIntent().getExtras();

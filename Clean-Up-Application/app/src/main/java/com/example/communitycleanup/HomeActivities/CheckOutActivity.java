@@ -25,6 +25,7 @@ public class CheckOutActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
+        setTitle("Check Out");
 
         name = (EditText) findViewById(R.id.editTextName2);
         event = (EditText) findViewById(R.id.editTextEvent2);

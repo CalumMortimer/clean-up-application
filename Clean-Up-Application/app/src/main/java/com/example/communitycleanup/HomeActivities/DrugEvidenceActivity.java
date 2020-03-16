@@ -32,6 +32,7 @@ public class DrugEvidenceActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drug_evidence);
+        setTitle("Report Drug Evidence");
 
         inputPostCode = findViewById(R.id.editText5);
         inputDescription = findViewById(R.id.editText7);
