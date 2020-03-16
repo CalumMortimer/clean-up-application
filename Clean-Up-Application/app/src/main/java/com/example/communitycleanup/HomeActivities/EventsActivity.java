@@ -24,6 +24,8 @@ public class EventsActivity extends AppCompatActivity {
      * Fill the table on the Events Activity with 10 new rows representing Events.
      * Where an event can be represented by a valid index in the Events Array List, fill
      * the table row with valid data.
+     *
+     * The weights of the TextView boxes are controlled to ensure no formatting errors occur on the UI
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
