@@ -20,4 +20,17 @@ public class HomeScreen extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),EventsActivity.class);
         startActivity(intent);
     }
+
+    public void ReportDrug(View view)
+    {
+        Intent intent = new Intent(getApplicationContext(), DrugEvidenceActivity.class);
+        startActivity(intent);
+    }
+
+
+    public void ReportFlyTipping(View view)
+    {
+        Intent intent = new Intent(getApplicationContext(), FlyTippingActivity.class);
+        startActivity(intent);
+    }
 }
