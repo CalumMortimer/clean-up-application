@@ -11,7 +11,7 @@
     <string name="activity_home.checkin">Check In</string>
     <string name="activity_home.checkout">Check Out</string>
     <string name="activity_home.myaccount">My Account</string>
-    <string name="activity_home.donate">Donate</string>
+    <string name="activity_home.aboutus">About Us</string>
     <string name="activity_home.loganissue">Log An Issue</string>
     <string name="activity_registration.preamble1">Registration Screen</string>
     <string name="activity_registration.preamble2">Please Enter Registration Details...</string>
@@ -31,7 +31,6 @@
     <string name="activity_drug_evidence.postcode">Enter Postcode</string>
     <string name="activity_drug_evidence.description">Please describe what you found in the box below:</string>
     <string name="activity_drug_evidence.upload">Add a Photo evidence</string>
-
 
 
 </resources>
