@@ -1,5 +1,8 @@
 package com.example.communitycleanup.DataTransfer;
 
+/**A class representing an Event
+ * Used as a data transfer object to pass data from the database to the UI
+ */
 public class Event {
     private String description;
     private String location;
