@@ -72,7 +72,7 @@ public class EventDatabase extends SQLiteOpenHelper {
         insert("April Cleanup","Beach House","04/04/20","10:00","12:00","No");
         insert("May Cleanup","North Hut","03/05/20","10:00","12:00","No");
         insert("June Cleanup","South Hut","06/06/20","10:00","12:00","No");
-        insert("Test Event","South Hut","16/03/20","17:00","19:00","No");
+        insert("Test Another Event","Calum's Flat","16/03/20","21:00","23:00","No");
     }
 
     /**returns an ArrayList of all Event objects represented on the Events table

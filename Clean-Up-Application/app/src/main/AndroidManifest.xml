@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NoEventsActivity"></activity>
+        <activity android:name=".CheckInSuccess"></activity>
+        <activity android:name=".NoEventsActivity" />
         <activity android:name=".HomeActivities.AboutActivity" />
         <activity android:name=".HomeActivities.EventsActivity" />
         <activity android:name=".HomeScreen" />
@@ -27,7 +28,7 @@
         </activity>
         <activity android:name=".HomeActivities.CheckInActivity" />
         <activity android:name=".HomeActivities.CheckOutActivity" />
-        <activity android:name=".HomeActivities.MyAccount"/>
+        <activity android:name=".HomeActivities.MyAccount" />
     </application>
 
 </manifest>

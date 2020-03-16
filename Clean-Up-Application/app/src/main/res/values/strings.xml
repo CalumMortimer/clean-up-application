@@ -36,6 +36,14 @@
     <string name="first_name">First Name</string>
     <string name="date_joined">Date Joined:</string>
     <string name="last_name">Last Name</string>
-
-
+    <string name="activity_check_in.thedetails">The details of the event are as follows:</string>
+    <string name="activity_check_in.description">Description:</string>
+    <string name="activity_check_in.location">Location:</string>
+    <string name="activity_check_in.starttime">Start Time:</string>
+    <string name="activity_check_in.finishtime">Finish Time:</string>
+    <string name="activity_check_in.pleaseticktounderstand1">Please tick the following box to</string>
+    <string name="activity_check_in.pleaseticktounderstand2">agree to the terms and conditions:</string>
+    <string name="activity_check_in.iagree">I Agree</string>
+    <string name="activity_check_in.confirmcheckin">Confirm Check In</string>
+    <string name="activity_check_in_success.successcheckin">Successfully Checked In!</string>
 </resources>
