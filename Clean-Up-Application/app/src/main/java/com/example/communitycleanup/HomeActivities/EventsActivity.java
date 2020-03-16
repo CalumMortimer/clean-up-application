@@ -1,20 +1,20 @@
 package com.example.communitycleanup.HomeActivities;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActionBar;
 import android.os.Bundle;
-import android.view.ViewGroup;
 import android.widget.CheckBox;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
-
 import com.example.communitycleanup.R;
-import com.google.android.material.tabs.TabLayout;
 
+/**The View Upcoming Events activity class
+ */
 public class EventsActivity extends AppCompatActivity {
+
+    /**On creation, populate the upcoming events table from the data stored in the events
+     * database
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
