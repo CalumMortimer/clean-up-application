@@ -20,7 +20,6 @@ public class EventDatabase extends SQLiteOpenHelper {
     {
         super(context,"events.db",null,1);
         SQLiteDatabase db = this.getWritableDatabase();
-        db.execSQL("DROP TABLE IF EXISTS EVENTS");
         onCreate(db);
     }
 

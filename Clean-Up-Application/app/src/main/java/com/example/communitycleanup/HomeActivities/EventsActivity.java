@@ -47,7 +47,7 @@ public class EventsActivity extends AppCompatActivity {
             tr.setLayoutParams(new TableLayout.LayoutParams(TableLayout.LayoutParams.MATCH_PARENT, TableLayout.LayoutParams.WRAP_CONTENT,1f));
 
             TextView[] textViewArray = {null,null,null,null,null};
-            float[] weights = {1.0f,1.0f,1.0f,0.5f,0.7f};
+            float[] weights = {1.0f,1.0f,0.7f,0.5f,0.7f};
 
             for (int j=0;j<5;j++)
             {
@@ -57,9 +57,11 @@ public class EventsActivity extends AppCompatActivity {
             }
 
             if (i<myEventList.size()) {
-                CheckBox myCheckBox = new CheckBox(this);
+                //Future Code:
+
+                /*CheckBox myCheckBox = new CheckBox(this);
                 myCheckBox.setLayoutParams(new TableRow.LayoutParams(0,TableRow.LayoutParams.WRAP_CONTENT,0.5f));
-                tr.addView(myCheckBox);
+                tr.addView(myCheckBox);*/
 
                 textViewArray[0].setText(myEventList.get(i).getDescription());
                 textViewArray[1].setText(myEventList.get(i).getLocation());
