@@ -79,18 +79,32 @@ public class MainActivity extends AppCompatActivity {
     public void logInAttempt(View view){
         String emailString = email.getText().toString();
         String passString = password.getText().toString();
-        firebaseAuth.signInWithEmailAndPassword(emailString,passString).addOnCompleteListener(this,new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    Toast.makeText(getApplicationContext(), "Successfully logged in", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(getApplicationContext(), HomeScreen.class);
-                    startActivity(intent);
-                } else {
-                    Toast.makeText(getApplicationContext(), "Login failed", Toast.LENGTH_SHORT).show();
+
+        if(TextUtils.isEmpty(emailString)){
+            Toast.makeText(getApplicationContext(),"Please fill in the required fields",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(TextUtils.isEmpty(passString)){
+            Toast.makeText(getApplicationContext(),"Please fill in the required fields",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if(password.length()<6){
+            Toast.makeText(getApplicationContext(),"Password must be at least 6 characters",Toast.LENGTH_SHORT).show();
+        }
+        else {
+            firebaseAuth.signInWithEmailAndPassword(emailString, passString).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()) {
+                        Toast.makeText(getApplicationContext(), "Successfully logged in", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(getApplicationContext(), HomeScreen.class);
+                        startActivity(intent);
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Login failed", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
+            });
+        }
     }
 
     /**Attempt to recover password with FireBase (reset email)
@@ -99,17 +113,23 @@ public class MainActivity extends AppCompatActivity {
      */
     public void recoverPassword(View view){
         final String emailString = email.getText().toString();
-        firebaseAuth.sendPasswordResetEmail(emailString)
-                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(getApplicationContext(),"Password reset email sent to "+emailString,Toast.LENGTH_LONG).show();
+
+        if(TextUtils.isEmpty(emailString)){
+            Toast.makeText(getApplicationContext(),"Please fill in the required fields",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else {
+            firebaseAuth.sendPasswordResetEmail(emailString)
+                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
+                            if (task.isSuccessful()) {
+                                Toast.makeText(getApplicationContext(), "Password reset email sent to " + emailString, Toast.LENGTH_LONG).show();
+                            } else {
+                                Toast.makeText(getApplicationContext(), "Error", Toast.LENGTH_SHORT).show();
+                            }
                         }
-                        else {
-                            Toast.makeText(getApplicationContext(),"Error",Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+                    });
+        }
     }
 }
