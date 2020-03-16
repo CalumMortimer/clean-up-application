@@ -2,7 +2,6 @@ package com.example.communitycleanup;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
-
 import com.example.communitycleanup.Data.EventDatabase;
 import com.example.communitycleanup.HomeActivities.AboutActivity;
 import com.example.communitycleanup.HomeActivities.CheckInActivity;

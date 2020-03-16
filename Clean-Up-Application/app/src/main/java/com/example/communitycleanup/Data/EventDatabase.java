@@ -107,12 +107,27 @@ public class EventDatabase extends SQLiteOpenHelper {
         }
     }
 
+    /**Converts the hour part of the start/finish times stored in the Event Database to
+     * an integer hour
+     *
+     * @param time the time string, eg 10:00
+     * @return the integer hour eg 10
+     */
     private int stringToHour(String time)
     {
         String[] splitTime = time.split(":");
         return Integer.parseInt(splitTime[0]);
     }
 
+    /**Method to establish if an Event is currently running in the event database according
+     * to the system time. A cursor goes through the event database looking for a match
+     * with today's date, if any of the matches have start/finish hour parameters surrounding
+     * the system time, the entire event object is returned. This assumes that all times
+     * in the Event database have zero minute values - the method currently does not work with
+     * minutes.
+     *
+     * @return The event object matching the current system time, or null
+     */
     public Event isEventRunning()
     {
         Date today = new Date();
