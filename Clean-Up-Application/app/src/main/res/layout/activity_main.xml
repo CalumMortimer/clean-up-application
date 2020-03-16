@@ -33,7 +33,7 @@
 
         <EditText
             android:id="@+id/editText"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginLeft="8dp"
@@ -47,11 +47,16 @@
 
         <EditText
             android:id="@+id/editText3"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp"
             android:ems="10"
             android:inputType="textPassword"
-            app:layout_constraintStart_toStartOf="@+id/editText"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <TextView
@@ -76,10 +81,11 @@
             android:id="@+id/button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="36dp"
+            android:layout_marginTop="40dp"
             android:onClick="logInAttempt"
             android:text="@string/activity_main.login"
-            app:layout_constraintEnd_toEndOf="@+id/editText3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/button2"
             app:layout_constraintTop_toBottomOf="@+id/editText3" />
 
         <Button
@@ -88,7 +94,8 @@
             android:layout_height="wrap_content"
             android:onClick="registerAttempt"
             android:text="@string/activity_main.register"
-            app:layout_constraintStart_toStartOf="@+id/editText3"
+            app:layout_constraintEnd_toStartOf="@+id/button"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/button" />
 
         <Button
