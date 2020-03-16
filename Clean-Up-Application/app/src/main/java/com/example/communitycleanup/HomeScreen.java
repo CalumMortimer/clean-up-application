@@ -20,4 +20,14 @@ public class HomeScreen extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(),EventsActivity.class);
         startActivity(intent);
     }
+
+    public void checkIn(View view) {
+        Intent intent = new Intent(getApplicationContext(), CheckInActivity.class);
+        startActivity(intent);
+    }
+
+    public void checkOut(View view) {
+        Intent intent = new Intent(getApplicationContext(), CheckOutActivity.class);
+        startActivity(intent);
+    }
 }
