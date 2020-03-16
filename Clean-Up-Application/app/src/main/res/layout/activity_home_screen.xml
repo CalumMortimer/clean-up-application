@@ -65,7 +65,8 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/activity_home.donate" />
+            android:onClick="about"
+            android:text="@string/activity_home.aboutus" />
 
         <Button
             android:id="@+id/button9"
