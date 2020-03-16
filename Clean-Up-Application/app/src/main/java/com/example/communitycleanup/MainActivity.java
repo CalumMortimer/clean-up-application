@@ -2,25 +2,33 @@ package com.example.communitycleanup;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
+/**The MainActivity class (Log-In Screen)
+ * This uses the FireBase authentication system to authenticate
+ * user credentials. Email and Password are extracted from EditTexts
+ * on the layout and passed to a FirebaseAuth object for authentication,
+ * registration, or password recovery.
+ */
 public class MainActivity extends AppCompatActivity {
     EditText email;
     EditText password;
 
     FirebaseAuth firebaseAuth;
 
+    /**Sets the activity layout and stores the EditText objects
+     * as email and password EditText objects.
+     * FirebaseAuth object is initialised.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +39,10 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
     }
 
+    /**Attempt to register an email and password with FireBase
+     *
+     * @param view the register button
+     */
     public void registerAttempt(View view){
         String emailString = email.getText().toString();
         String passString = password.getText().toString();
@@ -60,6 +72,10 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**Attempt to log in with FireBase
+     *
+     * @param view the log-in button
+     */
     public void logInAttempt(View view){
         String emailString = email.getText().toString();
         String passString = password.getText().toString();
@@ -77,6 +93,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**Attempt to recover password with FireBase (reset email)
+     *
+     * @param view the forgot password button
+     */
     public void recoverPassword(View view){
         final String emailString = email.getText().toString();
         firebaseAuth.sendPasswordResetEmail(emailString)
