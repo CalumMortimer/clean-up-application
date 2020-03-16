@@ -34,7 +34,6 @@ public class CheckOutActivity extends AppCompatActivity {
         listView = (ListView) findViewById(R.id.listViewCheckOut);
         arrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, myList);
         listView.setAdapter(arrayAdapter);
-
     }
 
     public void logCheckOut(View view){

@@ -1,4 +1,4 @@
-package com.example.communitycleanup.HomeActivities;
+package com.example.communitycleanup.HomeActivities.CheckIn;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,7 +9,6 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.communitycleanup.CheckInSuccess;
 import com.example.communitycleanup.Data.EventDatabase;
 import com.example.communitycleanup.DataTransfer.Event;
 import com.example.communitycleanup.R;

@@ -4,13 +4,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import com.example.communitycleanup.Data.EventDatabase;
 import com.example.communitycleanup.HomeActivities.AboutActivity;
-import com.example.communitycleanup.HomeActivities.CheckInActivity;
+import com.example.communitycleanup.HomeActivities.CheckIn.CheckInActivity;
+import com.example.communitycleanup.HomeActivities.CheckIn.NoEventsActivity;
 import com.example.communitycleanup.HomeActivities.CheckOutActivity;
 import com.example.communitycleanup.HomeActivities.DrugEvidenceActivity;
 import com.example.communitycleanup.HomeActivities.EventsActivity;
 import com.example.communitycleanup.HomeActivities.FlyTippingActivity;
 import com.example.communitycleanup.HomeActivities.MyAccount;
-import com.google.firebase.auth.FirebaseUser;
+
 import android.content.Intent;
 import android.view.View;
 

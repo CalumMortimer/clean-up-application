@@ -1,8 +1,10 @@
-package com.example.communitycleanup;
+package com.example.communitycleanup.HomeActivities.CheckIn;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.communitycleanup.R;
 
 public class NoEventsActivity extends AppCompatActivity {
 
