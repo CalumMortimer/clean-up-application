@@ -1,4 +1,4 @@
-package com.example.communitycleanup;
+package com.example.communitycleanup.HomeActivities;
 
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +7,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.communitycleanup.R;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package com.example.communitycleanup;
+package com.example.communitycleanup.Data;
 
 import android.content.ContentValues;
 import android.content.Context;

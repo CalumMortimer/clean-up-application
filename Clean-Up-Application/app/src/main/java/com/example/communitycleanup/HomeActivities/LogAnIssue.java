@@ -1,4 +1,4 @@
-package com.example.communitycleanup;
+package com.example.communitycleanup.HomeActivities;
 
 public class LogAnIssue {
     public String postcode;

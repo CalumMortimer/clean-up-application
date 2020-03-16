@@ -1,11 +1,12 @@
-package com.example.communitycleanup;
+package com.example.communitycleanup.Data;
 
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import com.example.communitycleanup.HomeActivities.LogAnIssue;
 
 public class LogIssueDatabase extends SQLiteOpenHelper{
 

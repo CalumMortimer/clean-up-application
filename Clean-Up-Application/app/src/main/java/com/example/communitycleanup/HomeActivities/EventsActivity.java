@@ -1,4 +1,4 @@
-package com.example.communitycleanup;
+package com.example.communitycleanup.HomeActivities;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ActionBar;
@@ -11,6 +11,7 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.example.communitycleanup.R;
 import com.google.android.material.tabs.TabLayout;
 
 public class EventsActivity extends AppCompatActivity {

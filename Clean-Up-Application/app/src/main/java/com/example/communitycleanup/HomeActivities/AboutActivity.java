@@ -1,4 +1,4 @@
-package com.example.communitycleanup;
+package com.example.communitycleanup.HomeActivities;
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.communitycleanup.R;
 
 
 public class AboutActivity extends Activity {
