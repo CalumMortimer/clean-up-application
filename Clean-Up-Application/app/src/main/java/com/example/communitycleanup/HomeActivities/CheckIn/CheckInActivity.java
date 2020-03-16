@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.communitycleanup.Data.CheckInDatabase;
 import com.example.communitycleanup.Data.EventDatabase;
 import com.example.communitycleanup.DataTransfer.Event;
 import com.example.communitycleanup.R;
@@ -18,8 +19,10 @@ import com.example.communitycleanup.R;
  */
 public class CheckInActivity extends AppCompatActivity {
     EventDatabase eDB;
+    CheckInDatabase cDB;
     TextView t1,t2,t3,t4;
     CheckBox c1;
+    Event thisEvent;
 
     /**Set the layout to the layout stored in the Check In activity
      *
@@ -32,8 +35,9 @@ public class CheckInActivity extends AppCompatActivity {
 
         eDB = new EventDatabase(this);
         eDB.populate();
+        cDB = new CheckInDatabase(this);
 
-        Event thisEvent = eDB.isEventRunning();
+        thisEvent = eDB.isEventRunning();
 
         t1 = findViewById(R.id.textView21);
         t2 = findViewById(R.id.textView22);
@@ -50,6 +54,7 @@ public class CheckInActivity extends AppCompatActivity {
     public void logCheckIn(View view){
         if (c1.isChecked())
         {
+            cDB.checkIn(thisEvent);
             Intent intent = new Intent(getApplicationContext(), CheckInSuccess.class);
             startActivity(intent);
         }

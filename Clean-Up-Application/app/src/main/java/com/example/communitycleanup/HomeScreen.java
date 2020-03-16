@@ -2,6 +2,8 @@ package com.example.communitycleanup;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.communitycleanup.Data.CheckInDatabase;
 import com.example.communitycleanup.Data.EventDatabase;
 import com.example.communitycleanup.HomeActivities.AboutActivity;
 import com.example.communitycleanup.HomeActivities.CheckIn.CheckInActivity;
@@ -20,6 +22,7 @@ import android.view.View;
  */
 public class HomeScreen extends AppCompatActivity {
     EventDatabase eDB;
+    CheckInDatabase cDB;
     /**Set the layout to the home screen activity
      */
     @Override
@@ -30,6 +33,7 @@ public class HomeScreen extends AppCompatActivity {
 
         eDB = new EventDatabase(this);
         eDB.populate();
+        cDB = new CheckInDatabase(this);
     }
 
     /**Open the EventsActivity
@@ -59,7 +63,7 @@ public class HomeScreen extends AppCompatActivity {
     public void ReportFlyTipping(View view)
     {
         Intent intent = new Intent(getApplicationContext(), FlyTippingActivity.class);
-      startActivity(intent);
+        startActivity(intent);
     }
 
     /**Open the CheckInActivity
@@ -82,8 +86,14 @@ public class HomeScreen extends AppCompatActivity {
      * @param view the "check out" button
      */
     public void checkOut(View view) {
-        Intent intent = new Intent(getApplicationContext(), CheckOutActivity.class);
-        startActivity(intent);
+        if (cDB.getCheckedInEvent()==null){
+            Intent intent = new Intent(getApplicationContext(), NoCheckOut.class);
+            startActivity(intent);
+        }
+        else{
+            Intent intent = new Intent(getApplicationContext(), CheckOutActivity.class);
+            startActivity(intent);
+        }
     }
 
     /**Open the About activity

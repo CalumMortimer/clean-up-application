@@ -46,4 +46,10 @@
     <string name="activity_check_in.iagree">I Agree</string>
     <string name="activity_check_in.confirmcheckin">Confirm Check In</string>
     <string name="activity_check_in_success.successcheckin">Successfully Checked In!</string>
+    <string name="activity_check_out.checkingoutoffollowing">You are checking out of the following event:</string>
+    <string name="activity_check_out.howmanybags">How many bin-bags did you fill today?</string>
+    <string name="activity_check_out.confirm">Confirm Check Out</string>
+    <string name="activity_check_out_success.successcheckout">Successfully Checked Out!</string>
+    <string name="activity_no_check_out1">You cannot check out,</string>
+    <string name="activity_no_check_out2">as you have not checked in!</string>
 </resources>

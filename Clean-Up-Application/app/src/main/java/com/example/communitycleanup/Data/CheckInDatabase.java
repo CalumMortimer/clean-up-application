@@ -55,12 +55,12 @@ public class CheckInDatabase extends SQLiteOpenHelper {
         contentValues.put("START",start);
         contentValues.put("FINISH",finish);
         contentValues.put("FAVOURITE",isFavourite);
-        db.insert("EVENTS",null,contentValues);
+        db.insert("CHECKIN",null,contentValues);
     }
 
     public void checkIn(Event myEvent)
     {
-        insert(myEvent.getDescription(),myEvent.getLocation(),myEvent.getDate(),myEvent.getStart(),myEvent.getFinish(),myEvent.getFavourite());
+        this.insert(myEvent.getDescription(),myEvent.getLocation(),myEvent.getDate(),myEvent.getStart(),myEvent.getFinish(),myEvent.getFavourite());
     }
 
     public Event getCheckedInEvent()
@@ -69,7 +69,7 @@ public class CheckInDatabase extends SQLiteOpenHelper {
         Event thisEvent = null;
         Cursor c = null;
         try {
-            c = db.rawQuery("Select * from checkin", null);
+            c = db.rawQuery("Select * from checkin;", null);
             if (c.moveToFirst()) {
                 do {
                     thisEvent = new Event();

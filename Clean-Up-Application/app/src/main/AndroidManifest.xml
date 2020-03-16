@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HomeActivities.CheckIn.CheckInSuccess"></activity>
+        <activity android:name=".NoCheckOut"></activity>
+        <activity android:name=".CheckOutSuccess" />
+        <activity android:name=".HomeActivities.CheckIn.CheckInSuccess" />
         <activity android:name=".HomeActivities.CheckIn.NoEventsActivity" />
         <activity android:name=".HomeActivities.AboutActivity" />
         <activity android:name=".HomeActivities.EventsActivity" />
