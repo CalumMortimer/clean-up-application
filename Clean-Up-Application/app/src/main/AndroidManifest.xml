@@ -14,6 +14,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".EventsActivity"></activity>
         <activity android:name=".HomeScreen" />
+        <activity android:name=".DrugEvidenceActivity"></activity>
+        <activity android:name=".FlyTippingActivity"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
