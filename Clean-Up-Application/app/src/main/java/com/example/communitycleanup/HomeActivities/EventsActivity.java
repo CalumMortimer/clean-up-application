@@ -17,8 +17,13 @@ import java.util.ArrayList;
  */
 public class EventsActivity extends AppCompatActivity {
 
-    /**On creation, populate the upcoming events table from the data stored in the events
-     * database
+    /**On creation, set the content view to the layout stored in the Events Activity
+     * Initialise the Events database from the EventDatabase class and populate the database with
+     * data. Create an ArrayList of Event which pulls the Events from the database.
+     *
+     * Fill the table on the Events Activity with 10 new rows representing Events.
+     * Where an event can be represented by a valid index in the Events Array List, fill
+     * the table row with valid data.
      */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
