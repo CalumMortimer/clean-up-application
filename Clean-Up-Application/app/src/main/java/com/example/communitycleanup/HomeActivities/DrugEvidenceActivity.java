@@ -1,65 +1,254 @@
 package com.example.communitycleanup.HomeActivities;
 
+import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.Looper;
+import android.provider.MediaStore;
+import android.provider.Settings;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
-
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.communitycleanup.Data.LogIssueDatabase;
 import com.example.communitycleanup.MainActivity;
 import com.example.communitycleanup.R;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationCallback;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationResult;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+
+import java.io.File;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class DrugEvidenceActivity extends AppCompatActivity {
 
     private LogAnIssue issue;
-    private EditText inputPostCode;
+
     private EditText inputDescription;
-    private Button btnChoose;
+    private Button takePhotoBtn;
     private Button btnUpload;
     private Button btnSubmit;
-    private ImageView pic;
+    private ImageView imageView;
+    public TextView latView;
+    public TextView longView;
+
+    private Uri file;
+
+    FusedLocationProviderClient mFusedLocationClient;
 
     //LogAnIssue userlog;
     MainActivity main1;
     LogIssueDatabase dbase;
+
+    int PERMISSION_ID = 44;
+    //private final int PICK_IMAGE_REQUEST = 71;
+
+
+    
 
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drug_evidence);
         setTitle("Report Drug Evidence");
 
-        inputPostCode = findViewById(R.id.editText5);
         inputDescription = findViewById(R.id.editText7);
-        btnChoose = findViewById(R.id.button12);
+        takePhotoBtn = findViewById(R.id.button12);
         btnSubmit = findViewById(R.id.button11);
-        btnUpload = findViewById(R.id.button13);
-        //pic = findViewById(R.id.imageView);
+        //btnUpload = findViewById(R.id.button13);
+
+
+        latView = findViewById(R.id.editText5);
+        longView = findViewById(R.id.editText4);
+
+        imageView = findViewById(R.id.imgView);
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            takePhotoBtn.setEnabled(false);
+            ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE }, 0);
+        }
+
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        getLastLocation();
+
     }
 
     public void logButton(View v) {
         //String s = main1.email.getText().toString();
-        String postcode = inputPostCode.getText().toString();
+        String laT = latView.getText().toString();
+        String lonG = longView.getText().toString();
         String description = inputDescription.getText().toString();
 
 
-     if(TextUtils.isEmpty(postcode) || TextUtils.isEmpty(description)){
-         Toast.makeText(getApplicationContext(),"Please provide a Postcode and a Description of what you found",Toast.LENGTH_SHORT).show();
+     if(TextUtils.isEmpty(laT) || TextUtils.isEmpty(lonG)){
+         Toast.makeText(getApplicationContext(),"Please set the specifc location",Toast.LENGTH_SHORT).show();
      }
      else{
          Toast.makeText(getApplicationContext(),"Issue Reported",Toast.LENGTH_SHORT).show();
-         inputPostCode.getText().clear();
+
          inputDescription.getText().clear();
          //LogAnIssue log = new LogAnIssue(postcode, description);
          //dbase.addIssue(log);
-
-
      }
 
     }
+
+    public void takePicture(View view) {
+        Intent takePicture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(takePicture, 100);
+        //file = Uri.fromFile(getOutputMediaFile());
+        //takePicture.putExtra(MediaStore.EXTRA_OUTPUT, file);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100) {
+            if (resultCode == RESULT_OK) {
+                imageView.setImageURI(file);
+            }
+        }
+    }
+
+    private File getOutputMediaFile(){
+        File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
+                Environment.DIRECTORY_PICTURES), "HomeActivities");
+
+        if (!mediaStorageDir.exists()){
+            if (!mediaStorageDir.mkdirs()){
+                Log.d("HomeActivities", "failed to create directory");
+                return null;
+            }
+        }
+
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
+        return new File(mediaStorageDir.getPath() + File.separator +
+                "IMG_"+ timeStamp + ".jpg");
+    }
+
+
+
+    @SuppressLint("MissingPermission")
+    public void getLastLocation(){
+        if (checkPermissions()) {
+            if (isLocationEnabled()) {
+                mFusedLocationClient.getLastLocation().addOnCompleteListener(
+                        new OnCompleteListener<Location>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Location> task) {
+                                Location location = task.getResult();
+                                if (location == null) {
+                                    requestNewLocationData();
+                                } else {
+                                    latView.setText(location.getLatitude()+"");
+                                    longView.setText(location.getLongitude()+"");
+                                }
+                            }
+                        }
+                );
+            } else {
+                Toast.makeText(this, "Turn on location", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
+                startActivity(intent);
+            }
+        } else {
+            requestPermissions();
+        }
+    }
+
+
+    @SuppressLint("MissingPermission")
+    public void requestNewLocationData(){
+
+        LocationRequest mLocationRequest = new LocationRequest();
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
+        mLocationRequest.setInterval(0);
+        mLocationRequest.setFastestInterval(0);
+        mLocationRequest.setNumUpdates(1);
+
+        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
+        mFusedLocationClient.requestLocationUpdates(
+                mLocationRequest, mLocationCallback,
+                Looper.myLooper()
+        );
+
+    }
+
+    private LocationCallback mLocationCallback = new LocationCallback() {
+        @Override
+        public void onLocationResult(LocationResult locationResult) {
+            Location mLastLocation = locationResult.getLastLocation();
+            latView.setText(mLastLocation.getLatitude()+"");
+            longView.setText(mLastLocation.getLongitude()+"");
+        }
+    };
+
+    public boolean checkPermissions() {
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED &&
+                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
+            return true;
+        }
+        return false;
+    }
+
+    public void requestPermissions() {
+        ActivityCompat.requestPermissions(
+                this,
+                new String[]{Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_FINE_LOCATION},
+                PERMISSION_ID
+        );
+    }
+
+    public boolean isLocationEnabled() {
+        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        return locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER) || locationManager.isProviderEnabled(
+                LocationManager.NETWORK_PROVIDER
+        );
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == PERMISSION_ID && requestCode ==0) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED
+                    && grantResults[1] == PackageManager.PERMISSION_GRANTED) {
+                getLastLocation();
+                takePhotoBtn.setEnabled(true);
+            }
+        }
+
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        if (checkPermissions()) {
+            getLastLocation();
+        }
+
+    }
+
+
+
+
 
 }
