@@ -28,8 +28,10 @@
     <string name="activity_events.favourite">Fav:</string>
     <string name="activity_drug_evidence">Report Drug Evidence</string>
     <string name="activity_fly_tipping_evidence">Report Fly-tipping</string>
-    <string name="activity_drug_evidence.postcode">Enter Postcode</string>
-    <string name="activity_drug_evidence.description">Please describe what you found in the box below:</string>
+    <string name="activity_drug_evidence.location">This is your current Location:</string>
+    <string name="activity_drug_evidence.location.button">Get location</string>
+
+    <string name="activity_drug_evidence.description">Please describe what you found in the space below:</string>
     <string name="activity_drug_evidence.upload">Add a Photo evidence</string>
     <string name="activity_no_events.nonerunning1">No events are running!</string>
     <string name="activity_no_events.nonerunning2">Please check the upcoming events page</string>
