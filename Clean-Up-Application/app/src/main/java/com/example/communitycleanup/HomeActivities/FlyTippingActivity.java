@@ -6,6 +6,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
@@ -22,6 +23,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.example.communitycleanup.Data.LogIssueDatabase;
 import com.example.communitycleanup.MainActivity;
@@ -42,8 +44,6 @@ public class FlyTippingActivity extends AppCompatActivity {
     private LogAnIssue issue;
 
     private EditText inputDescription1;
-
-    private Button takePhotobtn1;
 
     private Button btnSubmit1;
 
@@ -67,13 +67,42 @@ public class FlyTippingActivity extends AppCompatActivity {
 
 
         inputDescription1 = findViewById(R.id.editText7i);
-        takePhotobtn1 = findViewById(R.id.button12i);
+        Button takePhotoBtn1 = findViewById(R.id.button12i);
         btnSubmit1 = findViewById(R.id.button11i);
         pic = findViewById(R.id.imgViewi);
 
         latView1 = findViewById(R.id.editText5i);
         longView1 = findViewById(R.id.editText4i);
+
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
+            takePhotoBtn1.setEnabled(false);
+            ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE }, 0);
+        }
+
     }
+
+
+
+    public void takePicture(View v) {
+        Intent takePicture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(takePicture, 100);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 100) {
+            if (resultCode == RESULT_OK && data != null) {
+                Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
+                pic.setImageBitmap(selectedImage);
+            }
+        }
+
+
+    }
+
+
 
     public void logButton1(View v) {
         String description = inputDescription1.getText().toString();
@@ -82,10 +111,11 @@ public class FlyTippingActivity extends AppCompatActivity {
 
 
         if(TextUtils.isEmpty(latT) || TextUtils.isEmpty(longG)){
-            Toast.makeText(getApplicationContext(),"Please provide a Postcode and a Description of what you found",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(),"Please set the specifc location",Toast.LENGTH_SHORT).show();
         }
         else{
             Toast.makeText(getApplicationContext(),"Issue Reported",Toast.LENGTH_SHORT).show();
+
             inputDescription1.getText().clear();
             //LogAnIssue log = new LogAnIssue(postcode, description);
             //dbase.addIssue(log);
