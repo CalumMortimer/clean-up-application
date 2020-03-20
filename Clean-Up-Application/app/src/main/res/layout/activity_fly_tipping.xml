@@ -14,7 +14,7 @@
         android:layout_marginTop="24dp"
         android:background="#E1E9E8"
         android:gravity="center"
-        android:text="@string/activity_drug_evidence"
+        android:text="@string/activity_fly_tipping_evidence"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.058"
@@ -29,9 +29,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:ems="10"
-        android:gravity="center"
         android:inputType="textPersonName"
         android:textSize="15dp"
+        android:focusable="false"
+        android:clickable="false"
+        android:background="@null"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView28i" />
 
@@ -118,6 +120,9 @@
         android:layout_marginLeft="42dp"
         android:ems="10"
         android:inputType="textPersonName"
+        android:focusable="false"
+        android:clickable="false"
+        android:background="@null"
         app:layout_constraintStart_toEndOf="@+id/editText5i"
         app:layout_constraintTop_toBottomOf="@+id/textView29i" />
 
