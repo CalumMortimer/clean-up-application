@@ -5,6 +5,7 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.location.Location;
 import android.location.LocationManager;
 import android.net.Uri;
@@ -53,7 +54,6 @@ public class DrugEvidenceActivity extends AppCompatActivity {
     public TextView latView;
     public TextView longView;
 
-    private Uri file;
 
     FusedLocationProviderClient mFusedLocationClient;
 
@@ -82,6 +82,7 @@ public class DrugEvidenceActivity extends AppCompatActivity {
         longView = findViewById(R.id.editText4);
 
         imageView = findViewById(R.id.imgView);
+
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
             takePhotoBtn.setEnabled(false);
             ActivityCompat.requestPermissions(this, new String[] { Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE }, 0);
@@ -89,6 +90,10 @@ public class DrugEvidenceActivity extends AppCompatActivity {
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         getLastLocation();
+
+
+
+
 
     }
 
@@ -112,39 +117,23 @@ public class DrugEvidenceActivity extends AppCompatActivity {
 
     }
 
-    public void takePicture(View view) {
+    public void takePicture(View v) {
         Intent takePicture = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
         startActivityForResult(takePicture, 100);
-        //file = Uri.fromFile(getOutputMediaFile());
-        //takePicture.putExtra(MediaStore.EXTRA_OUTPUT, file);
+
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == 100) {
-            if (resultCode == RESULT_OK) {
-                imageView.setImageURI(file);
-            }
-        }
-    }
-
-    private File getOutputMediaFile(){
-        File mediaStorageDir = new File(Environment.getExternalStoragePublicDirectory(
-                Environment.DIRECTORY_PICTURES), "HomeActivities");
-
-        if (!mediaStorageDir.exists()){
-            if (!mediaStorageDir.mkdirs()){
-                Log.d("HomeActivities", "failed to create directory");
-                return null;
+            if (resultCode == RESULT_OK && data != null) {
+                Bitmap selectedImage = (Bitmap) data.getExtras().get("data");
+                imageView.setImageBitmap(selectedImage);
             }
         }
 
-        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
-        return new File(mediaStorageDir.getPath() + File.separator +
-                "IMG_"+ timeStamp + ".jpg");
     }
-
 
 
     @SuppressLint("MissingPermission")
