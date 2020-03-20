@@ -28,9 +28,11 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:ems="10"
-        android:gravity="center"
         android:inputType="textPersonName"
         android:textSize="15dp"
+        android:background="@null"
+        android:focusable="false"
+        android:clickable="false"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView28" />
 
@@ -117,6 +119,9 @@
         android:layout_marginStart="42dp"
         android:layout_marginLeft="42dp"
         android:ems="10"
+        android:focusable="false"
+        android:clickable="false"
+        android:background="@null"
         android:inputType="textPersonName"
         app:layout_constraintStart_toEndOf="@+id/editText5"
         app:layout_constraintTop_toBottomOf="@+id/textView29" />
