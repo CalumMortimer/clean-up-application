@@ -58,12 +58,10 @@ public class DrugEvidenceActivity extends AppCompatActivity {
     //private final int PICK_IMAGE_REQUEST = 71;
 
 
-    
-
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drug_evidence);
-        setTitle("Report Drug Evidence");
+        setTitle("Log An Issue");
         try {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
@@ -71,7 +69,7 @@ public class DrugEvidenceActivity extends AppCompatActivity {
             System.out.println("null pointer exception");
         }
 
-        inputDescription = findViewById(R.id.editText7);
+        //inputDescription = findViewById(R.id.editText7);
         takePhotoBtn = findViewById(R.id.button12);
         btnSubmit = findViewById(R.id.button11);
         //btnUpload = findViewById(R.id.button13);
