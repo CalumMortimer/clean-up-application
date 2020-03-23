@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -39,6 +42,31 @@ public class MainActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
     }
 
+    /**Override the default action bar
+     *
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.login_menu,menu);
+        return true;
+    }
+
+    /**Define options menu behaviour
+     *
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch(item.getItemId()){
+            case R.id.item1:
+                finish();
+                moveTaskToBack(true);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
     /**Attempt to register an email and password with FireBase
      *
      * @param view the register button
