@@ -66,15 +66,6 @@
             android:drawableTop="@drawable/ic_account_box_black_24dp"/>
 
         <Button
-            android:id="@+id/button8"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:onClick="about"
-            android:text="@string/activity_home.aboutus"
-            android:drawableTop="@drawable/ic_info_outline_black_24dp"/>
-
-        <Button
             android:id="@+id/button9"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -82,6 +73,15 @@
             android:drawableTop="@drawable/ic_warning_black_24dp"
             android:onClick="ReportDrug"
             android:text="@string/activity_home.loganissue" />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/ic_info_outline_black_24dp"
+            android:onClick="about"
+            android:text="@string/activity_home.aboutus" />
 
     </LinearLayout>
 
