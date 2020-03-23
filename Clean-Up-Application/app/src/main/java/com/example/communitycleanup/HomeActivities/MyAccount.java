@@ -10,5 +10,11 @@ public class MyAccount extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_account);
         setTitle("My Account");
+        try {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        catch (NullPointerException e){
+            System.out.println("null pointer exception");
+        }
     }
 }

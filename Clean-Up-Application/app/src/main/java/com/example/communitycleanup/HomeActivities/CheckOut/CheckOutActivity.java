@@ -26,6 +26,12 @@ public class CheckOutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
         setTitle("Check Out");
+        try {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        catch (NullPointerException e){
+            System.out.println("null pointer exception");
+        }
 
         cDB = new CheckInDatabase(this);
         Event thisEvent = cDB.getCheckedInEvent();

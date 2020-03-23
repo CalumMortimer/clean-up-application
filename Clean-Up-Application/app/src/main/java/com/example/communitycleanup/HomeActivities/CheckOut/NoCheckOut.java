@@ -12,5 +12,11 @@ public class NoCheckOut extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_no_check_out);
+        try {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        catch (NullPointerException e){
+            System.out.println("null pointer exception");
+        }
     }
 }

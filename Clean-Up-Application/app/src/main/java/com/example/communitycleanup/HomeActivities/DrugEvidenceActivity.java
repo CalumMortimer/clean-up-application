@@ -8,14 +8,10 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.location.Location;
 import android.location.LocationManager;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Looper;
-import android.provider.MediaStore;
 import android.provider.Settings;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -28,6 +24,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.communitycleanup.Data.LogIssueDatabase;
+import com.example.communitycleanup.DataTransfer.LogAnIssue;
 import com.example.communitycleanup.MainActivity;
 import com.example.communitycleanup.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -37,10 +34,6 @@ import com.google.android.gms.location.LocationResult;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-
-import java.io.File;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class DrugEvidenceActivity extends AppCompatActivity {
 
@@ -71,6 +64,12 @@ public class DrugEvidenceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drug_evidence);
         setTitle("Report Drug Evidence");
+        try {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        catch (NullPointerException e){
+            System.out.println("null pointer exception");
+        }
 
         inputDescription = findViewById(R.id.editText7);
         takePhotoBtn = findViewById(R.id.button12);

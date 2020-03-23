@@ -26,6 +26,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import com.example.communitycleanup.Data.LogIssueDatabase;
+import com.example.communitycleanup.DataTransfer.LogAnIssue;
 import com.example.communitycleanup.MainActivity;
 import com.example.communitycleanup.R;
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -61,6 +62,12 @@ public class FlyTippingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fly_tipping);
         setTitle("Report Fly Tipping");
+        try {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        catch (NullPointerException e){
+            System.out.println("null pointer exception");
+        }
 
         mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
         getLastLocation();

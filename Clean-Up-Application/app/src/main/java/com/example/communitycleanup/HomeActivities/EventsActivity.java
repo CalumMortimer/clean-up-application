@@ -32,6 +32,12 @@ public class EventsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_events);
         setTitle("View Upcoming Events");
+        try {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        catch (NullPointerException e){
+            System.out.println("null pointer exception");
+        }
 
         EventDatabase eDB = new EventDatabase(this);
         eDB.populate();
