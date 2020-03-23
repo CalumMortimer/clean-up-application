@@ -3,10 +3,14 @@ import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.communitycleanup.MainActivity;
 import com.example.communitycleanup.R;
 
 
@@ -36,5 +40,31 @@ public class AboutActivity extends AppCompatActivity {
         setResult(RESULT_OK, i);
         //destroy activity
         finish();
+    }
+
+    /**Override the default action bar
+     *
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.usual_menu,menu);
+        return true;
+    }
+
+    /**Define options menu behaviour
+     *
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch(item.getItemId()){
+            case R.id.item2:
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 }

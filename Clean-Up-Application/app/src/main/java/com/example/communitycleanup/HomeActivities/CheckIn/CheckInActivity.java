@@ -2,6 +2,9 @@ package com.example.communitycleanup.HomeActivities.CheckIn;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.TextView;
@@ -12,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.communitycleanup.Data.CheckInDatabase;
 import com.example.communitycleanup.Data.EventDatabase;
 import com.example.communitycleanup.DataTransfer.Event;
+import com.example.communitycleanup.MainActivity;
 import com.example.communitycleanup.R;
 
 /**A class representing the Check In page
@@ -55,6 +59,32 @@ public class CheckInActivity extends AppCompatActivity {
         t2.setText(thisEvent.getLocation());
         t3.setText(thisEvent.getStart());
         t4.setText(thisEvent.getFinish());
+    }
+
+    /**Override the default action bar
+     *
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.usual_menu,menu);
+        return true;
+    }
+
+    /**Define options menu behaviour
+     *
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch(item.getItemId()){
+            case R.id.item2:
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void logCheckIn(View view){

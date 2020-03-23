@@ -18,6 +18,9 @@ import com.example.communitycleanup.HomeActivities.FlyTippingActivity;
 import com.example.communitycleanup.HomeActivities.MyAccount;
 
 import android.content.Intent;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 /**The HomeScreen class - contains tiles which re-direct to the various
@@ -37,6 +40,32 @@ public class HomeScreen extends AppCompatActivity {
         eDB = new EventDatabase(this);
         eDB.populate();
         cDB = new CheckInDatabase(this);
+    }
+
+    /**Override the default action bar
+     *
+     */
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.usual_menu,menu);
+        return true;
+    }
+
+    /**Define options menu behaviour
+     *
+     */
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch(item.getItemId()){
+            case R.id.item2:
+                Intent intent = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     /**Open the EventsActivity
