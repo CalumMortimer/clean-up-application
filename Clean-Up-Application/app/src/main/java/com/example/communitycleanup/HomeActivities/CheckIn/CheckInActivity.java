@@ -13,7 +13,7 @@ import com.example.communitycleanup.Data.CheckInDatabase;
 import com.example.communitycleanup.Data.EventDatabase;
 import com.example.communitycleanup.DataTransfer.Event;
 import com.example.communitycleanup.R;
-
+//Test
 /**A class representing the Check In page
  *
  */
