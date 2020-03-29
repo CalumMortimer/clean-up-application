@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#E7F2F5">
+
+    <TextView
+        android:id="@+id/textView5i"
+        android:layout_width="410dp"
+        android:layout_height="98dp"
+        android:layout_marginTop="24dp"
+        android:background="#E1E9E8"
+        android:gravity="center"
+        android:text="@string/activity_fly_tipping_evidence"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <EditText
+        android:id="@+id/editText5i"
+        android:layout_width="111dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textSize="15dp"
+        android:focusable="false"
+        android:clickable="false"
+        android:background="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView28i" />
+
+    <TextView
+        android:id="@+id/textView8i"
+        android:layout_width="362dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="47dp"
+        android:gravity="center"
+        android:text="@string/activity_drug_evidence.description"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText5i" />
+
+    <Button
+        android:id="@+id/button11i"
+        android:layout_width="153dp"
+        android:layout_height="57dp"
+        android:layout_marginStart="91dp"
+        android:layout_marginLeft="91dp"
+        android:layout_marginTop="62dp"
+        android:background="#3FB6AB"
+        android:onClick="logButton1"
+        android:text="Log Issue"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/button12i"
+        app:layout_constraintTop_toBottomOf="@+id/textView9i" />
+
+    <ImageView
+        android:id="@+id/imgViewi"
+        android:layout_width="89dp"
+        android:layout_height="66dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9i" />
+
+    <Button
+        android:id="@+id/button12i"
+        android:layout_width="99dp"
+        android:layout_height="53dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:onClick="takePicture"
+        android:text="Take photo"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imgViewi" />
+
+    <TextView
+        android:id="@+id/textView9i"
+        android:layout_width="259dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/activity_drug_evidence.upload"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editText7i" />
+
+    <EditText
+        android:id="@+id/editText7i"
+        android:layout_width="352dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:ems="10"
+        android:gravity="start|top"
+        android:inputType="textMultiLine"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8i" />
+
+    <EditText
+        android:id="@+id/editText4i"
+        android:layout_width="111dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginLeft="42dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:focusable="false"
+        android:clickable="false"
+        android:background="@null"
+        app:layout_constraintStart_toEndOf="@+id/editText5i"
+        app:layout_constraintTop_toBottomOf="@+id/textView29i" />
+
+    <TextView
+        android:id="@+id/textView28i"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="3dp"
+        android:text="Latitude: "
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView30i" />
+
+    <TextView
+        android:id="@+id/textView29i"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="93dp"
+        android:layout_marginLeft="93dp"
+        android:layout_marginTop="3dp"
+        android:text="Longitude: "
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView28i"
+        app:layout_constraintTop_toBottomOf="@+id/textView30i" />
+
+    <TextView
+        android:id="@+id/textView30i"
+        android:layout_width="252dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="25dp"
+        android:text="@string/activity_drug_evidence.location"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5i" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
