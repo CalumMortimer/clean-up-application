@@ -26,10 +26,10 @@ public class LogIssueDatabase extends SQLiteOpenHelper{
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String CREATION_TABLE = "CREATE TABLE Issues ( "
-                + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
-                + "Postcode TEXT, " + "Details TEXT )";
-        db.execSQL(CREATION_TABLE);
+        //String CREATION_TABLE = "CREATE TABLE Issues ( "
+        //        + "id INTEGER PRIMARY KEY AUTOINCREMENT, "
+        //        + "Postcode TEXT, " + "Details TEXT )";
+        //db.execSQL(CREATION_TABLE);
 
     }
 
@@ -45,7 +45,7 @@ public class LogIssueDatabase extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         //values.put(KEY_User, evidence.userEmail);
-        values.put(KEY_Area, evidence.postcode);
+        //values.put(KEY_Area, evidence.postcode);
         values.put(KEY_Details, evidence.description);
         // insert
         db.insert(TABLE_NAME,null, values);

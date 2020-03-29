@@ -58,7 +58,7 @@ public class DrugEvidenceActivity extends AppCompatActivity {
     LogIssueDatabase dbase;
 
     int PERMISSION_ID = 44;
-    //private final int PICK_IMAGE_REQUEST = 71;
+
 
 
     protected void onCreate(Bundle savedInstanceState){
@@ -72,7 +72,7 @@ public class DrugEvidenceActivity extends AppCompatActivity {
             System.out.println("null pointer exception");
         }
 
-        //inputDescription = findViewById(R.id.editText7);
+        inputDescription = findViewById(R.id.editText6);
         takePhotoBtn = findViewById(R.id.button12);
         btnSubmit = findViewById(R.id.button11);
         //btnUpload = findViewById(R.id.button13);
@@ -130,14 +130,14 @@ public class DrugEvidenceActivity extends AppCompatActivity {
         String description = inputDescription.getText().toString();
 
 
-     if(TextUtils.isEmpty(laT) || TextUtils.isEmpty(lonG)){
-         Toast.makeText(getApplicationContext(),"Please set the specifc location",Toast.LENGTH_SHORT).show();
+     if(TextUtils.isEmpty(description) ){
+         Toast.makeText(getApplicationContext(),"Please provide a description",Toast.LENGTH_SHORT).show();
      }
      else{
          Toast.makeText(getApplicationContext(),"Issue Reported",Toast.LENGTH_SHORT).show();
 
          inputDescription.getText().clear();
-         //LogAnIssue log = new LogAnIssue(postcode, description);
+         //LogAnIssue log = new LogAnIssue(description);
          //dbase.addIssue(log);
      }
 
