@@ -31,8 +31,6 @@
         <activity android:name=".HomeScreen"/>
         <activity android:name=".HomeActivities.DrugEvidenceActivity"
             android:parentActivityName=".HomeScreen"/>
-        <activity android:name=".HomeActivities.FlyTippingActivity"
-            android:parentActivityName=".HomeScreen"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

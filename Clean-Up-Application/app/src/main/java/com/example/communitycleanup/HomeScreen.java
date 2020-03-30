@@ -2,7 +2,6 @@ package com.example.communitycleanup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.ActionBar;
 import android.os.Bundle;
 
 import com.example.communitycleanup.Data.CheckInDatabase;
@@ -14,7 +13,6 @@ import com.example.communitycleanup.HomeActivities.CheckOut.CheckOutActivity;
 import com.example.communitycleanup.HomeActivities.CheckOut.NoCheckOut;
 import com.example.communitycleanup.HomeActivities.DrugEvidenceActivity;
 import com.example.communitycleanup.HomeActivities.EventsActivity;
-import com.example.communitycleanup.HomeActivities.FlyTippingActivity;
 import com.example.communitycleanup.HomeActivities.MyAccount;
 
 import android.content.Intent;
@@ -87,16 +85,7 @@ public class HomeScreen extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), DrugEvidenceActivity.class);
         startActivity(intent);
     }
-
-    /**Open the FlyTippingActivity
-     *
-     * @param view the "report fly tipping" button
-     */
-    public void ReportFlyTipping(View view)
-    {
-        Intent intent = new Intent(getApplicationContext(), FlyTippingActivity.class);
-        startActivity(intent);
-    }
+    
 
     /**Open the CheckInActivity
      *

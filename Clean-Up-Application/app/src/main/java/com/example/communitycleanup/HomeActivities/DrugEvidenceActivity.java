@@ -75,7 +75,7 @@ public class DrugEvidenceActivity extends AppCompatActivity {
         inputDescription = findViewById(R.id.editText6);
         takePhotoBtn = findViewById(R.id.button12);
         btnSubmit = findViewById(R.id.button11);
-        //btnUpload = findViewById(R.id.button13);
+
 
 
         latView = findViewById(R.id.editText5);
@@ -97,9 +97,7 @@ public class DrugEvidenceActivity extends AppCompatActivity {
 
     }
 
-    /**Override the default action bar
-     *
-     */
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu)
     {
@@ -108,9 +106,7 @@ public class DrugEvidenceActivity extends AppCompatActivity {
         return true;
     }
 
-    /**Define options menu behaviour
-     *
-     */
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
         switch(item.getItemId()){
